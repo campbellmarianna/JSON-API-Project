@@ -18,7 +18,6 @@ internal func exerciseOne() {
     }
     let jsonData = try! Data(contentsOf: jsonURL)
     
-    
     // Enter SwiftyJSON!
     // userData now contains a JSON object representing all the data in the JSON file.
     // This JSON file contains the same data as the tutorial example.
@@ -41,9 +40,16 @@ internal func exerciseOne() {
      
      */
     
+    let lastName = userData["results"][0]["name"]["last"].stringValue
+    let title = userData["results"][0]["name"]["title"].stringValue
+    let street = userData["results"][0]["location"]["street"].stringValue
+    let city = userData["results"][0]["location"]["city"].stringValue
+    let state = userData["results"][0]["location"]["state"].stringValue
+    let postCode = userData["result"][0]["location"]["postcode"].intValue
+    let emailAddress = userData["results"][0]["email"].stringValue
+    let cellPhoneNumber = userData["results"][0]["cell"].stringValue
     
-    
-    
+    print(" \(firstName) \(lastName) lives at \(street) in \(city), \(state), \(postCode). If you want to contact \(title). \(lastName), you can email \(emailAddress) or cell at \(cellPhoneNumber).")
     
 }
 
