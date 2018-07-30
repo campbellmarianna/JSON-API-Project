@@ -71,7 +71,7 @@ internal func exerciseTwo() {
     // We save the value for ["feed"]["entry"][0] to topMovieData to pull out just the first movie's data
     let topMovieData = moviesData["feed"]["entry"][0]
     let topMovie = Movie(json: topMovieData)
-//    let name = movie.feed.entry
+    
     // Uncomment this print statement when you are ready to check your code!
     
   print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
@@ -93,17 +93,19 @@ internal func exerciseThree() {
     
     // We've done you the favor of grabbing an array of JSON objects representing each movie
     let allMoviesData = moviesData["feed"]["entry"].arrayValue
-    
+    //print ("All the movies include \(allMoviesData).")
     /*
      
      Figure out a way to turn the allMoviesData array into Movie structs!
      
      */
     var allMovies: [Movie] = []
-    
-    
-    
-    
+    for movieDictionary in allMoviesData {
+        let movie = Movie(json: movieDictionary)
+        allMovies.append(movie)
+    }
+    print("_-----")
+    print(allMovies[0])
     /*
      
      Uncomment the below print statement and then print out the names of the two Disney
@@ -139,3 +141,5 @@ internal func exerciseThree() {
     
     
 }
+
+
